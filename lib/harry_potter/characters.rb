@@ -4,13 +4,14 @@ class HarryPotter::Characters
 
   @@all = []
 
-  def self.new_from_api(char_info)
-    @character = char_info
-    @@all << @character
-    binding.pry
+  def self.new_from_api
+    HarryPotter::API.character_list.each do |char|
+      @charater = char
+      @@all << @character
+    end
   end
 
-  def iniinitialize(name = nil, species = nil)
+  def initialize(name = nil, species = nil)
     @name = name
     @species = species
   end
