@@ -34,15 +34,16 @@ class HarryPotter::CLI
   end
 
   def list_students
-    @students = HarryPotter::Students.all
+    @students = HarryPotter::Characters.all_students
   end
 
   def list_staff
-    @staff = HarryPotter::Staff.all
+    @staff = HarryPotter::Characters.all_staff
   end
 
   def list_houses
-    @houses = HarryPotter::Houses.all
+    #Somehow offer each house and let the user pick which house to view
+    @houses = HarryPotter::Characters.all_houses
   end
 
 end
