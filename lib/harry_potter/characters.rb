@@ -1,14 +1,13 @@
 class HarryPotter::Characters
 
-  attr_accessor :student_1, :name, :gender, :house, :species
+  attr_accessor :student_1, :name, :gender, :house, :species, :character
 
   @@all = []
 
   def self.new_from_api(char_info)
-    self.new(
-    char_info[0],
-    char_info[1],
-    )
+    @character = char_info
+    @@all << @character
+    binding.pry
   end
 
   def iniinitialize(name = nil, species = nil)
@@ -22,7 +21,7 @@ class HarryPotter::Characters
   end
 
   def self.all_students
-    puts "list of students"
+    @@all
   end
 
   def self.all_staff
