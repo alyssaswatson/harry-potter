@@ -1,28 +1,33 @@
 class HarryPotter::Characters
 
-  attr_accessor :student_1, :name, :gender, :house, :species, :character
+  attr_accessor :name, :gender, :house, :species, :character, :date_birth, :year_birth, :ancestry
 
   @@all = []
 
   def self.new_from_api
+    @character = self
     HarryPotter::API.character_list.each do |char|
-      @charater = char
-      @@all << @character
+      char.each do |key, value|
+      value[0] = @character.name
+      value[1] = @character.species
+      value[2] = self.gender
+      value[3] = self.house
+      value[4] = self.date_birth
+      value[5] = self.year_birth
+      value[6] = self.ancestry
+    end
+      @@all << self
     end
   end
-
-  def initialize(name = nil, species = nil)
-    @name = name
-    @species = species
-  end
-
+#{"name"=>"Harry Potter", "species"=>"human", "gender"=>"male", "house"=>"Gryffindor", "dateOfBirth"=>"31-07-1980",
+#"yearOfBirth"=>1980, "ancestry"=>"half-blood", "eyeColour"=>"green", "hairColour"=>"black", "wand"=>{"wood"=>"holly", "core"=>"phoenix feather", "length"=>11}
   def self.all
     #binding.pry
     @@all
   end
 
   def self.all_students
-    @@all
+    puts "list of students"
   end
 
   def self.all_staff
