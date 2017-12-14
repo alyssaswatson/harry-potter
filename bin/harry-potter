@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require '../lib/harry_potter'
+
+
+HarryPotter::CLI.new.call
