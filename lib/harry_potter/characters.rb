@@ -1,18 +1,19 @@
 class HarryPotter::Characters
 
-  attr_accessor :student_1, :name, :gender, :house
+  attr_accessor :student_1, :name, :gender, :house, :species
 
   @@all = []
 
-  def self.new_from_json(char_info)
+  def self.new_from_api(char_info)
     self.new(
-    char_info["name"],
-    char_info["species"],
-    char_info["gender"],
-    char_info["house"],
+    char_info[0],
+    char_info[1],
     )
+  end
 
-    @@all << self
+  def iniinitialize(name = nil, species = nil)
+    @name = name
+    @species = species
   end
 
   def self.all
