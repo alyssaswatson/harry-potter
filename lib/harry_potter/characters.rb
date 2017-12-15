@@ -1,33 +1,41 @@
 class HarryPotter::Characters
 
-  attr_accessor :name, :gender, :house, :species, :character, :date_birth, :year_birth, :ancestry
+  attr_accessor :name, :gender, :house, :species, :character, :date_birth, :year_birth, :ancestry, :character
 
   @@all = []
 
+  def character
+    @character = character
+  end
+
   def self.new_from_api
-    @character = self
-    HarryPotter::API.character_list.each do |char|
-      char.each do |key, value|
-      value[0] = @character.name
-      value[1] = @character.species
-      value[2] = self.gender
-      value[3] = self.house
-      value[4] = self.date_birth
-      value[5] = self.year_birth
-      value[6] = self.ancestry
+    #@character.new = self
+    harry = {"name":"Harry Potter","species":"human","gender":"male","house":"Gryffindor","dateOfBirth":"31-07-1980","yearOfBirth":1980,"ancestry":"half-blood","eyeColour":"green","hairColour":"black","wand":{"wood":"holly","core":"phoenix feather","length":11},"patronus":"stag","hogwartsStudent":true,"hogwartsStaff":false,"actor":"Daniel Radcliffe","alive":true,"image":"http://hp-api.herokuapp.com/images/harry.jpg"}
+    #HarryPotter::API.character_list.each do |char|
+    harry.keys.each do |key|
+      m = "#{key}="
+      @character.send( m, hash[key] ) if @character.respond_to?( m )
     end
       @@all << self
-    end
   end
-#{"name"=>"Harry Potter", "species"=>"human", "gender"=>"male", "house"=>"Gryffindor", "dateOfBirth"=>"31-07-1980",
-#"yearOfBirth"=>1980, "ancestry"=>"half-blood", "eyeColour"=>"green", "hairColour"=>"black", "wand"=>{"wood"=>"holly", "core"=>"phoenix feather", "length"=>11}
+
   def self.all
     #binding.pry
     @@all
   end
 
   def self.all_students
-    puts "list of students"
+
+    @character
+
+    harry = {"name":"Harry Potter","species":"human","gender":"male","house":"Gryffindor","dateOfBirth":"31-07-1980","yearOfBirth":1980,"ancestry":"half-blood","eyeColour":"green","hairColour":"black","wand":{"wood":"holly","core":"phoenix feather","length":11},"patronus":"stag","hogwartsStudent":true,"hogwartsStaff":false,"actor":"Daniel Radcliffe","alive":true,"image":"http://hp-api.herokuapp.com/images/harry.jpg"}
+    #HarryPotter::API.character_list.each do |char|
+    # harry.keys.each do |key|
+    #   m = "#{key}="
+    #   character.send( m, hash[key] ) if @character.respond_to?( m )
+    #
+    # end
+    @character.name = harry[0]
   end
 
   def self.all_staff
