@@ -11,13 +11,24 @@ class HarryPotter::Characters
     # end
     #   @@all << self
 
-    self.new(
-      name = character_info["name"],
-      species = character_info["species"],
-      gender = character_info["gender"]
-    )
+    name = character_info["name"],
+    species = character_info["species"],
+    gender = character_info["gender"],
+    house = character_info["house"],
+    dob = character_info["dateOfBirth"],
+    yob = character_info["yearOfBirth"],
+    ancestry = character_info["ancestry"],
+    eye_colour = character_info["eyeColour"],
+    hair_colour = character_info["hairColour"],
+    wand = character_info["wand"],
+    patronus = character_info["patronus"],
+    hogwarts_student = character_info["hogwartsStudent"],
+    hogwarts_staff = character_info["hogwartsStaff"],
+    actor = character_info["actor"],
+    alive = character_info["alive"],
+    image = character_info["image"]
     @@all << self
-    binding.pry
+    #binding.pry
   end
 
   def initialize(name = nil, species = nil, gender = nil)
