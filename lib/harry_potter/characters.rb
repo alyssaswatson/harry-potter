@@ -39,7 +39,9 @@ class HarryPotter::Characters
   end
 
   def self.all_students
-    puts "list of students"
+    #puts "list of students"
+    @@all
+    #binding.pry
   end
 
   def self.all_staff
