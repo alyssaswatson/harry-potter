@@ -2,6 +2,7 @@
 class HarryPotter::CLI
 
   def call
+    HarryPotter::API.character_list
     puts "Welcome to the Wizarding World of Harry Potter!"
     puts "We can tell you more about any of your favorite characters."
     menu

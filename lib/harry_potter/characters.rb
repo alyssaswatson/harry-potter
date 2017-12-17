@@ -19,6 +19,7 @@ class HarryPotter::Characters
     #   @character.send( m, hash[key] ) if @character.respond_to?( m )
     # end
     #   @@all << self
+    binding.pry
     self.new(
       character_info["name"],
       character_info["species"],

@@ -5,7 +5,7 @@ class HarryPotter::API
     character_data = RestClient.get('http://hp-api.herokuapp.com/api/characters')
     @character_hash = JSON.parse(character_data)
     @character_hash.each do |chars|
-          HarryPotter::Characters.new_from_json(chars)
+          HarryPotter::Characters.new_from_api(chars)
     end
   end
 
