@@ -31,11 +31,26 @@ class HarryPotter::Characters
     #binding.pry
   end
 
-  def initialize(name = nil, species = nil, gender = nil)
+  def initialize(name = nil, species = nil, gender = nil, house = nil, dob = nil,
+    yob = nil, ancestry = nil, eye_colour = nil, hair_colour = nil, wand = nil,
+    patronus = nil, hogwarts_student = nil, hogwarts_staff = nil, actor = nil, alive = nil, image = nil)
     @name = name
     @species = species
     @gender = gender
-    @@all << self
+    @house = house
+    @dob = dob
+    @yob = yob
+    @ancestry = ancestry
+    @eye_colour = eye_colour
+    @hair_colour = hair_colour
+    @wand = wand
+    @patronus = patronus
+    @hogwarts_student = hogwarts_student
+    @hogwarts_staff = hogwarts_staff
+    @actor = actor
+    @alive = alive
+    @image = image
+    #@@all << self
   end
 
   def self.all
@@ -45,7 +60,7 @@ class HarryPotter::Characters
 
   def self.all_students
     puts "list of students"
-    @@all
+    puts @@all
   end
 
   def self.all_staff
