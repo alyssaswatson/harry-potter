@@ -4,19 +4,33 @@ class HarryPotter::Characters
 
   @@all = []
 
-  def character
-    @character = character
+  # def character
+  #   harry = {"name":"Harry Potter","species":"human","gender":"male","house":"Gryffindor","dateOfBirth":"31-07-1980","yearOfBirth":1980,"ancestry":"half-blood","eyeColour":"green","hairColour":"black","wand":{"wood":"holly","core":"phoenix feather","length":11},"patronus":"stag","hogwartsStudent":true,"hogwartsStaff":false,"actor":"Daniel Radcliffe","alive":true,"image":"http://hp-api.herokuapp.com/images/harry.jpg"}
+  #   #HarryPotter::API.character_list.each do |char|
+  #   @character.name = harry[:name]
+  #   @@all << self
+  # end
+
+  def self.new_from_api(character_info)
+    #@character.new = self
+    # harry = {"name":"Harry Potter","species":"human","gender":"male","house":"Gryffindor","dateOfBirth":"31-07-1980","yearOfBirth":1980,"ancestry":"half-blood","eyeColour":"green","hairColour":"black","wand":{"wood":"holly","core":"phoenix feather","length":11},"patronus":"stag","hogwartsStudent":true,"hogwartsStaff":false,"actor":"Daniel Radcliffe","alive":true,"image":"http://hp-api.herokuapp.com/images/harry.jpg"}
+    # harry.keys.each do |key|
+    #   m = "#{key}="
+    #   @character.send( m, hash[key] ) if @character.respond_to?( m )
+    # end
+    #   @@all << self
+    self.new(
+      character_info["name"],
+      character_info["species"],
+      character_info["gender"]
+    )
   end
 
-  def self.new_from_api
-    #@character.new = self
-    harry = {"name":"Harry Potter","species":"human","gender":"male","house":"Gryffindor","dateOfBirth":"31-07-1980","yearOfBirth":1980,"ancestry":"half-blood","eyeColour":"green","hairColour":"black","wand":{"wood":"holly","core":"phoenix feather","length":11},"patronus":"stag","hogwartsStudent":true,"hogwartsStaff":false,"actor":"Daniel Radcliffe","alive":true,"image":"http://hp-api.herokuapp.com/images/harry.jpg"}
-    #HarryPotter::API.character_list.each do |char|
-    harry.keys.each do |key|
-      m = "#{key}="
-      @character.send( m, hash[key] ) if @character.respond_to?( m )
-    end
-      @@all << self
+  def initialize(name = nil, species = nil, gender = nil)
+    @name = name
+    @species = species
+    @gender = gender
+    @@all << self
   end
 
   def self.all
@@ -25,17 +39,7 @@ class HarryPotter::Characters
   end
 
   def self.all_students
-
-    @character
-
-    harry = {"name":"Harry Potter","species":"human","gender":"male","house":"Gryffindor","dateOfBirth":"31-07-1980","yearOfBirth":1980,"ancestry":"half-blood","eyeColour":"green","hairColour":"black","wand":{"wood":"holly","core":"phoenix feather","length":11},"patronus":"stag","hogwartsStudent":true,"hogwartsStaff":false,"actor":"Daniel Radcliffe","alive":true,"image":"http://hp-api.herokuapp.com/images/harry.jpg"}
-    #HarryPotter::API.character_list.each do |char|
-    # harry.keys.each do |key|
-    #   m = "#{key}="
-    #   character.send( m, hash[key] ) if @character.respond_to?( m )
-    #
-    # end
-    @character.name = harry[0]
+    puts "list of students"
   end
 
   def self.all_staff
