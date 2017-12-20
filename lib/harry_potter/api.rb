@@ -8,5 +8,4 @@ class HarryPotter::API
           HarryPotter::Characters.new_from_api(chars)
     end
   end
-
 end

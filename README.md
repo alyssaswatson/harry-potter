@@ -1,8 +1,6 @@
 # HarryPotter
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/harry_potter`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem offers a list of 25 of the more popular characters from the series "Harry Potter." It allows you to navigate through the different characters and see more information about each one. You can see information including: date of birth, ancestry, house, patronus, and more!
 
 ## Installation
 
@@ -22,7 +20,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Ensure you have RestClient and JSON gems installed. Run program with bin/harry-potter. Navigate through options. 
 
 ## Development
 

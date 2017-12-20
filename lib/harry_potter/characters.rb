@@ -5,10 +5,6 @@ class HarryPotter::Characters
   @@characters = []
 
   def self.new_from_api(character_info)
-    # character_info.keys.each do |key|
-    #   m = "#{key}="
-    #   @character.send( m, hash[key] ) if @character.respond_to?( m )
-    # end
     self.new(
     name = character_info["name"],
     species = character_info["species"],

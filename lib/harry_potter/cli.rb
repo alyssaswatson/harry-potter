@@ -40,17 +40,14 @@ class HarryPotter::CLI
   end
 
   def list_characters
-    #change to an .each_with_index at some point?
     counter = 0
     HarryPotter::Characters.all_characters.each do |name|
       counter += 1
       puts "#{counter}. #{name.name}"
-      #binding.pry
     end
   end
 
   def pick_character(input)
-    #binding.pry
     puts "Here is more information about #{HarryPotter::Characters.all_characters[input - 1].name}:"
     puts "species: #{HarryPotter::Characters.all_characters[input - 1].species}"
     puts "gender: #{HarryPotter::Characters.all_characters[input - 1].gender}"
