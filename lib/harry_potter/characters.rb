@@ -2,15 +2,15 @@ class HarryPotter::Characters
 
   attr_reader :name, :gender, :house, :species, :character, :date_birth, :year_birth, :ancestry, :character
 
-  @@all = []
+  @@students = []
 
   def self.new_from_api(character_info)
-    # harry.keys.each do |key|
+    # character_info.keys.each do |key|
     #   m = "#{key}="
     #   @character.send( m, hash[key] ) if @character.respond_to?( m )
     # end
     #   @@all << self
-
+    self.new(
     name = character_info["name"],
     species = character_info["species"],
     gender = character_info["gender"],
@@ -26,8 +26,8 @@ class HarryPotter::Characters
     hogwarts_staff = character_info["hogwartsStaff"],
     actor = character_info["actor"],
     alive = character_info["alive"],
-    image = character_info["image"]
-    @@all << self
+    image = character_info["image"])
+
     #binding.pry
   end
 
@@ -50,7 +50,7 @@ class HarryPotter::Characters
     @actor = actor
     @alive = alive
     @image = image
-    #@@all << self
+    @@students << self
   end
 
   def self.all
@@ -59,8 +59,8 @@ class HarryPotter::Characters
   end
 
   def self.all_students
-    puts "list of students"
-    puts @@all
+    @@students
+    #binding.pry
   end
 
   def self.all_staff

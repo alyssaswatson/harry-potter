@@ -35,7 +35,9 @@ class HarryPotter::CLI
   end
 
   def list_students
-    @students = HarryPotter::Characters.all_students
+    @students = HarryPotter::Characters.all_students.each do |name|
+      puts "#{name.name}"
+    end
   end
 
   def list_staff
