@@ -1,6 +1,6 @@
 class HarryPotter::Characters
 
-  attr_reader :name, :gender, :house, :species, :dob, :yob, :eye_colour, :hair_colour, :wand, :patronus, :hogwarts_student, :hogwarts_staff, :actor, :alive, :image
+  attr_reader :name, :gender, :house, :species, :dob, :yob, :eye_colour, :hair_colour, :wand, :patronus, :hogwarts_student, :hogwarts_staff, :actor, :alive, :image, :ancestry
 
   @@characters = []
 
