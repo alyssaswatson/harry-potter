@@ -5,18 +5,13 @@ class HarryPotter::CLI
     HarryPotter::API.character_list
     puts "Welcome to the Wizarding World of Harry Potter!"
     puts "We can tell you more about any of your favorite characters listed below."
-    puts "Simply type the number by the character that you would like to learn more about!"
     list_characters
+    puts "Simply type the number by the character that you would like to learn more about!"
     menu
   end
 
   def menu
     input = nil
-    puts "How would you like to see the characters: (1, 2, or 3)"
-    puts 'You may also exit by typing "exit."'
-    puts "1. All Students"
-    puts "2. All Staff"
-    puts "3. By House"
     input = gets.strip.downcase
     if input == "1"
       list_characters
