@@ -60,8 +60,7 @@ class HarryPotter::CLI
     puts "ancestry: #{HarryPotter::Characters.all_characters[input - 1].ancestry}"
     puts "eye colour: #{HarryPotter::Characters.all_characters[input - 1].eye_colour}"
     puts "hair colour: #{HarryPotter::Characters.all_characters[input - 1].hair_colour}"
-    puts "wand: #{HarryPotter::Characters.all_characters[input - 1].wand}"
-    binding.pry
+    puts "wand: wood: #{HarryPotter::Characters.all_characters[input - 1].wand["wood"]}, core: #{HarryPotter::Characters.all_characters[input - 1].wand["core"]}, length: #{HarryPotter::Characters.all_characters[input - 1].wand["length"]} inches"
     puts "patronus: #{HarryPotter::Characters.all_characters[input - 1].patronus}"
     puts "hogwarts student? #{HarryPotter::Characters.all_characters[input - 1].hogwarts_student}"
     puts "hogwarts staff? #{HarryPotter::Characters.all_characters[input - 1].hogwarts_staff}"
