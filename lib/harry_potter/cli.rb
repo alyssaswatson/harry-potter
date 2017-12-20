@@ -7,20 +7,36 @@ class HarryPotter::CLI
     puts "We can tell you more about any of your favorite characters listed below."
     list_characters
     puts "Simply type the number by the character that you would like to learn more about!"
+    puts "If you would like to exit, simply type 'exit.'"
     menu
   end
 
   def menu
     input = nil
-    input = gets.strip.to_i
-    if input >= 1 && input <= 25
-      pick_character(input)
-      puts "Pick another character or type exit to exit:"
-      list_characters
-      menu
-    else
-      exit!
+    input = gets.strip
+    while input != "exit"
+      if input.to_i >= 1 && input.to_i <= 25
+        pick_character(input.to_i)
+        puts "Would you like to see another character? (y/n)"
+        i = gets.strip.downcase
+        if i == "y"
+          puts "Pick a character:"
+          list_characters
+          menu
+        elsif i == "n"
+          puts "Thank you for exploring the magical world of wizards!"
+          exit!
+        else
+          puts "Sorry, I don't understand. Please type the number of the character you would like to see, or type exit."
+          list_characters
+          menu
+        end
+      else
+        puts "Sorry, I don't understand. Please type the number of the character you would like to see, or type exit."
+        menu
+      end
     end
+    puts "Thank you for exploring the magical world of wizards!"
   end
 
   def list_characters
@@ -45,6 +61,7 @@ class HarryPotter::CLI
     puts "eye colour: #{HarryPotter::Characters.all_characters[input - 1].eye_colour}"
     puts "hair colour: #{HarryPotter::Characters.all_characters[input - 1].hair_colour}"
     puts "wand: #{HarryPotter::Characters.all_characters[input - 1].wand}"
+    binding.pry
     puts "patronus: #{HarryPotter::Characters.all_characters[input - 1].patronus}"
     puts "hogwarts student? #{HarryPotter::Characters.all_characters[input - 1].hogwarts_student}"
     puts "hogwarts staff? #{HarryPotter::Characters.all_characters[input - 1].hogwarts_staff}"
