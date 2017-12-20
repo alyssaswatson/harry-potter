@@ -2,7 +2,7 @@ class HarryPotter::Characters
 
   attr_reader :name, :gender, :house, :species, :character, :date_birth, :year_birth, :ancestry, :character
 
-  @@students = []
+  @@characters = []
 
   def self.new_from_api(character_info)
     # character_info.keys.each do |key|
@@ -50,7 +50,7 @@ class HarryPotter::Characters
     @actor = actor
     @alive = alive
     @image = image
-    @@students << self
+    @@characters << self
   end
 
   def self.all
@@ -58,35 +58,9 @@ class HarryPotter::Characters
     @@all
   end
 
-  def self.all_students
-    @@students
+  def self.all_characters
+    @@characters
     #binding.pry
-  end
-
-  def self.all_staff
-    puts "list of staff"
-  end
-
-  def self.all_houses
-    #check spelling haha
-    puts "Please choose which house you are interested in:"
-    puts "1. Gryfinndor"
-    puts "2. Hufflepuff"
-    puts "3. Ravenclaw"
-    puts "4. Slytherin"
-    input = gets.strip
-    if input == "1"
-      puts "all the gryfindors"
-    elsif input == "2"
-      puts "all the Hufflepuffs"
-    elsif input == "3"
-      puts "all the Ravenclaws"
-    elsif input == "4"
-      puts "all the Slytherin"
-    else
-      puts "Sorry, I dont understand! Please enet a number 1-4"
-      self.houses
-    end
   end
 
 end

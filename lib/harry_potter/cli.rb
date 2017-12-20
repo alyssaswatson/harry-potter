@@ -17,7 +17,7 @@ class HarryPotter::CLI
     puts "3. By House"
     input = gets.strip.downcase
     if input == "1"
-      list_students
+      list_characters
       menu
     elsif input == "2"
       list_staff
@@ -34,19 +34,10 @@ class HarryPotter::CLI
     end
   end
 
-  def list_students
-    @students = HarryPotter::Characters.all_students.each do |name|
+  def list_characters
+    @characters = HarryPotter::Characters.all_characters.each do |name|
       puts "#{name.name}"
     end
-  end
-
-  def list_staff
-    @staff = HarryPotter::Characters.all_staff
-  end
-
-  def list_houses
-    #Somehow offer each house and let the user pick which house to view
-    @houses = HarryPotter::Characters.all_houses
   end
 
 end
