@@ -31,7 +31,8 @@ class HarryPotter::CLI
   end
 
   def pick_character(input)
-    puts "we got here! #{input}"
+    #binding.pry
+    puts HarryPotter::Characters.all_characters[input - 1].name
   end
 
 end

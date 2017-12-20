@@ -1,6 +1,6 @@
 class HarryPotter::Characters
 
-  attr_reader :name, :gender, :house, :species, :character, :date_birth, :year_birth, :ancestry, :character
+  attr_reader :name, :gender, :house, :species, :dob, :yob, :eye_colour, :hair_colour, :wand, :patronus, :hogwarts_student, :hogwarts_staff, :actor, :alive, :image
 
   @@characters = []
 
@@ -9,7 +9,6 @@ class HarryPotter::Characters
     #   m = "#{key}="
     #   @character.send( m, hash[key] ) if @character.respond_to?( m )
     # end
-    #   @@all << self
     self.new(
     name = character_info["name"],
     species = character_info["species"],
@@ -27,8 +26,6 @@ class HarryPotter::Characters
     actor = character_info["actor"],
     alive = character_info["alive"],
     image = character_info["image"])
-
-    #binding.pry
   end
 
   def initialize(name = nil, species = nil, gender = nil, house = nil, dob = nil,
@@ -53,14 +50,8 @@ class HarryPotter::Characters
     @@characters << self
   end
 
-  def self.all
-    #binding.pry
-    @@all
-  end
-
   def self.all_characters
     @@characters
-    #binding.pry
   end
 
 end
