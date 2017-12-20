@@ -12,22 +12,11 @@ class HarryPotter::CLI
 
   def menu
     input = nil
-    input = gets.strip.downcase
-    if input == "1"
-      list_characters
-      menu
-    elsif input == "2"
-      list_staff
-      menu
-    elsif input == "3"
-      list_houses
-      menu
-    elsif input == "exit"
-      puts "Thank you for exploring the magical world of wizards!"
-      exit
+    input = gets.strip.to_i
+    if input >= 1 && input <= 25
+      pick_character(input)
     else
-      puts "Sorry, please enter 1, 2, or 3 to see more information or 'exit' to leave the program."
-      menu
+      exit!
     end
   end
 
@@ -39,6 +28,10 @@ class HarryPotter::CLI
       puts "#{counter}. #{name.name}"
       #binding.pry
     end
+  end
+
+  def pick_character(input)
+    puts "we got here! #{input}"
   end
 
 end
