@@ -4,7 +4,9 @@ class HarryPotter::CLI
   def call
     HarryPotter::API.character_list
     puts "Welcome to the Wizarding World of Harry Potter!"
-    puts "We can tell you more about any of your favorite characters."
+    puts "We can tell you more about any of your favorite characters listed below."
+    puts "Simply type the number by the character that you would like to learn more about!"
+    list_characters
     menu
   end
 
@@ -35,8 +37,12 @@ class HarryPotter::CLI
   end
 
   def list_characters
-    @characters = HarryPotter::Characters.all_characters.each do |name|
-      puts "#{name.name}"
+    #change to an .each_with_index at some point?
+    counter = 0
+    HarryPotter::Characters.all_characters.each do |name|
+      counter += 1
+      puts "#{counter}. #{name.name}"
+      #binding.pry
     end
   end
 
