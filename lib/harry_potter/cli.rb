@@ -49,16 +49,17 @@ class HarryPotter::CLI
 
   def pick_character(input)
     puts "Here is more information about #{HarryPotter::Characters.all_characters[input - 1].name}:"
-    puts "species: #{HarryPotter::Characters.all_characters[input - 1].species}"
+    puts "If the information is unknown, it will be left blank."
+    puts "species: #{HarryPotter::Characters.all_characters[input - 1].species}" unless HarryPotter::Characters.all_characters[input - 1].species == ""
     puts "gender: #{HarryPotter::Characters.all_characters[input - 1].gender}"
     puts "house: #{HarryPotter::Characters.all_characters[input - 1].house}"
     puts "date of birth: #{HarryPotter::Characters.all_characters[input - 1].dob}"
-    puts "age: #{Date.today.year- HarryPotter::Characters.all_characters[input - 1].yob.to_i}"
+    puts "age: #{Date.today.year- HarryPotter::Characters.all_characters[input - 1].yob.to_i}" unless Date.today.year-HarryPotter::Characters.all_characters[input - 1].yob.to_i == Date.today.year
     puts "ancestry: #{HarryPotter::Characters.all_characters[input - 1].ancestry}"
     puts "eye colour: #{HarryPotter::Characters.all_characters[input - 1].eye_colour}"
     puts "hair colour: #{HarryPotter::Characters.all_characters[input - 1].hair_colour}"
     puts "wand: wood: #{HarryPotter::Characters.all_characters[input - 1].wand["wood"]}, core: #{HarryPotter::Characters.all_characters[input - 1].wand["core"]}, length: #{HarryPotter::Characters.all_characters[input - 1].wand["length"]} inches"
-    puts "patronus: #{HarryPotter::Characters.all_characters[input - 1].patronus}"
+    puts "patronus: #{HarryPotter::Characters.all_characters[input - 1].patronus}" unless HarryPotter::Characters.all_characters[input - 1].patronus == ""
     puts "hogwarts student? #{HarryPotter::Characters.all_characters[input - 1].hogwarts_student}"
     puts "hogwarts staff? #{HarryPotter::Characters.all_characters[input - 1].hogwarts_staff}"
     puts "actor: #{HarryPotter::Characters.all_characters[input - 1].actor}"
